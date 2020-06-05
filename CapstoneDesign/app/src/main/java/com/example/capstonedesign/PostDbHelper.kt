@@ -9,9 +9,14 @@ class PostDbHelper(context: Context) : SQLiteOpenHelper(context,DATABASE_NAME,nu
     override fun onCreate(db: SQLiteDatabase?) {
         val createSql = CREATE_SQL_VER3
         val createSqlUser = CREATE_SQL_USER
+        val createSqlGift = CREATE_SQL_GIFT
         db?.execSQL(createSql)
         db?.execSQL(createSqlUser)
-        db?.execSQL("INSERT INTO user (money) values(0)")
+        db?.execSQL(createSqlGift)
+        db?.execSQL("INSERT INTO user (id,money) values(0,0)")
+        db?.execSQL("INSERT INTO gift (g_name,price) values('아메리카노',3000)")
+        db?.execSQL("INSERT INTO gift (g_name,price) values('조리퐁 라떼',4000)")
+        db?.execSQL("INSERT INTO gift (g_name,price) values('초코라떼',2500)")
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
@@ -25,19 +30,21 @@ class PostDbHelper(context: Context) : SQLiteOpenHelper(context,DATABASE_NAME,nu
         const val DATABASE_NAME = "post.db"
 
         const val CREATE_SQL_VER1 = "CREATE TABLE post ("+
-                "id INTEGER PRIMARY KEY,"+
-                "title TEXT )"
+                "id INTEGER PRIMARY KEY, gift INTEGER )"
 
         const val CREATE_SQL_VER2 = "CREATE TABLE post ("+
-                "id INTEGER PRIMARY KEY,"+
-                "title TEXT )"
+                "id INTEGER PRIMARY KEY, gift INTEGER )"
 
         const val CREATE_SQL_VER3 = "CREATE TABLE post ("+
-                "id INTEGER PRIMARY KEY,"+
-                "title TEXT, " +
+                "id INTEGER PRIMARY KEY, gift INTEGER, "+
                 "time TIMESTAMP DEFAULT CURRENT_TIMESTAMP )"
 
         const val CREATE_SQL_USER = "CREATE TABLE user ("+
-                "money INTEGER PRIMARY KEY )"
+                "id INTEGER PRIMARY KEY, money INTEGER )"
+
+        const val CREATE_SQL_GIFT = "CREATE TABLE gift ("+
+                "g_id INTEGER PRIMARY KEY, "+
+                "g_name TEXT, "+
+                "price INTEGER )"
     }
 }
