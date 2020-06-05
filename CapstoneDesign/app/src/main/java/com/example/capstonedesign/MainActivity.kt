@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         moneyView.text = getMoney().toString() + "원"
 
         moneyUp.setOnClickListener {
-            addMoney(1000)
+            addMoney(10000)
         }
 
         shopButton.setOnClickListener {
@@ -27,6 +27,11 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this@MainActivity, GiftActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        moneyView.text = getMoney().toString() + "원"
     }
 
     fun addMoney(n : Int){

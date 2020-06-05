@@ -3,6 +3,7 @@ package com.example.capstonedesign
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
+import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,17 +24,19 @@ class ShopActivity : AppCompatActivity()  {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_shop)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = MyAdapter()
         updateRecyclerView()
         moneyView.text = getMoney().toString() + "원"
     }
 
     inner class MyViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
-        val moneyView : TextView
+        val titleTextView : TextView
         val priceTextView : TextView
         val buyButton : Button
 
         init{
-            moneyView = itemView.moneyView
+            titleTextView = itemView.titleTextView
             priceTextView = itemView.priceTextView
             buyButton = itemView.buyButton
         }
@@ -51,8 +54,8 @@ class ShopActivity : AppCompatActivity()  {
         }
 
         override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-            holder.moneyView.text = getMoney().toString()
-            holder.priceTextView.text = dataList[position].get("price").toString()
+            holder.titleTextView.text = dataList[position].get("g_name").toString()
+            holder.priceTextView.text = dataList[position].get("price").toString() + "원"
             holder.buyButton.setOnClickListener{
                 val haveM = getMoney()
                 val id = dataList[position].get("g_id")?.toInt()

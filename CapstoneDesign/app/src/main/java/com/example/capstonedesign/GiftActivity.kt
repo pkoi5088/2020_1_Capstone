@@ -24,7 +24,9 @@ class GiftActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_gift)
-        //updateRecyclerView()
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = MyAdapter()
+        updateRecyclerView()
     }
 
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -39,7 +41,7 @@ class GiftActivity : AppCompatActivity() {
         }
     }
 
-    /*inner class MyAdapter : RecyclerView.Adapter<MyViewHolder>() {
+    inner class MyAdapter : RecyclerView.Adapter<MyViewHolder>() {
         override fun onCreateViewHolder(parent: ViewGroup, position: Int): MyViewHolder {
             return MyViewHolder(
                 LayoutInflater.from(this@GiftActivity).inflate(R.layout.card, parent, false)
@@ -59,7 +61,7 @@ class GiftActivity : AppCompatActivity() {
                 updateRecyclerView();
             }
         }
-    }*/
+    }
 
     fun updateRecyclerView() {
         dataList.clear()
