@@ -10,13 +10,16 @@ class PostDbHelper(context: Context) : SQLiteOpenHelper(context,DATABASE_NAME,nu
         val createSql = CREATE_SQL_VER3
         val createSqlUser = CREATE_SQL_USER
         val createSqlGift = CREATE_SQL_GIFT
+        val createSqlGame = CREATE_SQL_GAME
         db?.execSQL(createSql)
         db?.execSQL(createSqlUser)
         db?.execSQL(createSqlGift)
-        db?.execSQL("INSERT INTO user (id,money) values(0,0)")
+        db?.execSQL(createSqlGame)
+        db?.execSQL("INSERT INTO user (id,money,health,max) values(0,0,1,10)")
         db?.execSQL("INSERT INTO gift (g_name,price) values('아메리카노',3000)")
         db?.execSQL("INSERT INTO gift (g_name,price) values('조리퐁 라떼',4000)")
         db?.execSQL("INSERT INTO gift (g_name,price) values('초코라떼',2500)")
+        db?.execSQL("INSERT INTO game (id,name,price) values(0,'먹이주기',500)")
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
@@ -40,11 +43,16 @@ class PostDbHelper(context: Context) : SQLiteOpenHelper(context,DATABASE_NAME,nu
                 "time TIMESTAMP DEFAULT CURRENT_TIMESTAMP )"
 
         const val CREATE_SQL_USER = "CREATE TABLE user ("+
-                "id INTEGER PRIMARY KEY, money INTEGER )"
+                "id INTEGER PRIMARY KEY, money INTEGER, health INTEGER, max INTEGER )"
 
         const val CREATE_SQL_GIFT = "CREATE TABLE gift ("+
                 "g_id INTEGER PRIMARY KEY, "+
                 "g_name TEXT, "+
+                "price INTEGER )"
+
+        const val CREATE_SQL_GAME = "CREATE TABLE game ("+
+                "id INTEGER PRIMARY KEY, "+
+                "name TEXT, "+
                 "price INTEGER )"
     }
 }
