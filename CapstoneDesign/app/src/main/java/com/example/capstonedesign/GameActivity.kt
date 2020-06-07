@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_game.*
 import kotlinx.android.synthetic.main.scard.view.*
 
@@ -55,9 +56,13 @@ class GameActivity : AppCompatActivity() {
                 val id = dataList[position].get("id")?.toInt()
                 val price = dataList[position].get("price")?.toInt()
                 if(haveM >= price!!){
-                    if (id != null) {
+                    if(getHealth()>=getMax()){
+                        Toast.makeText(this@GameActivity,"체력이 최대입니다.",Toast.LENGTH_SHORT).show()
+                    }else if (id != null) {
                         buyItem(id,price)
                     }
+                }else{
+                    Toast.makeText(this@GameActivity,"돈이 부족합니다.",Toast.LENGTH_SHORT).show()
                 }
                 updateRecyclerView();
             }
@@ -77,7 +82,7 @@ class GameActivity : AppCompatActivity() {
             0 -> {
                 val health = getHealth()
                 val max = getMax()
-                val sql = "UPDATE user SET health = ${(health+1)%(max+1)} where health = ${health}"
+                val sql = "UPDATE user SET health = ${health+1} where health = ${health}"
                 dbHelper.writableDatabase.execSQL(sql)
             }
         }

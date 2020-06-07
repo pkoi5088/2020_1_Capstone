@@ -90,5 +90,5 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/HeathView"
 
-            tools:srcCompat="@drawable/ic_launcher_background" />
+            android:src="@drawable/egg" />
 </android.support.constraint.ConstraintLayout>

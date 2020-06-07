@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_gift.*
 import kotlinx.android.synthetic.main.activity_gift.recyclerView
 import kotlinx.android.synthetic.main.activity_shop.*
@@ -64,6 +65,8 @@ class ShopActivity : AppCompatActivity()  {
                     if (id != null) {
                         buyGift(id,price)
                     }
+                }else{
+                    Toast.makeText(this@ShopActivity,"돈이 부족합니다.", Toast.LENGTH_SHORT).show()
                 }
                 updateRecyclerView();
             }
