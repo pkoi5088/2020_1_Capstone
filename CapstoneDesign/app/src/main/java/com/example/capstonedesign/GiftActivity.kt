@@ -1,22 +1,17 @@
 package com.example.capstonedesign
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.view.menu.ActionMenuItemView
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.ViewParent
 import android.widget.Button
-import android.widget.ImageButton
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_gift.*;
-import kotlinx.android.synthetic.main.card.*
 import kotlinx.android.synthetic.main.card.view.*
-import kotlinx.android.synthetic.main.card.view.titleTextView
+import kotlinx.android.synthetic.main.card.view.subjectView
 
 class GiftActivity : AppCompatActivity() {
     val dataList = mutableListOf<MutableMap<String, String>>()
@@ -35,7 +30,7 @@ class GiftActivity : AppCompatActivity() {
         val deleteButton: Button
 
         init {
-            titleTextView = itemView.titleTextView
+            titleTextView = itemView.subjectView
             timeTextView = itemView.timeTextView
             deleteButton = itemView.deleteButton
         }

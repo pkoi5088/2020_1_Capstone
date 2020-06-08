@@ -18,6 +18,11 @@ class MainActivity : AppCompatActivity() {
             addMoney(10000)
         }
 
+        attendButton.setOnClickListener {
+            val intent = Intent(this@MainActivity, AttendActivity::class.java)
+            startActivity(intent)
+        }
+
         shopButton.setOnClickListener {
             val intent = Intent(this@MainActivity, ShopActivity::class.java)
             startActivity(intent)

@@ -10,13 +10,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_gift.*
-import kotlinx.android.synthetic.main.activity_gift.recyclerView
 import kotlinx.android.synthetic.main.activity_shop.*
-import kotlinx.android.synthetic.main.activity_shop.view.*
-import kotlinx.android.synthetic.main.activity_shop.view.moneyView
-import kotlinx.android.synthetic.main.card.view.*
-import kotlinx.android.synthetic.main.card.view.titleTextView
 import kotlinx.android.synthetic.main.scard.view.*
 
 class ShopActivity : AppCompatActivity()  {
@@ -37,8 +31,8 @@ class ShopActivity : AppCompatActivity()  {
         val buyButton : Button
 
         init{
-            titleTextView = itemView.titleTextView
-            priceTextView = itemView.priceTextView
+            titleTextView = itemView.subjectView
+            priceTextView = itemView.attendView
             buyButton = itemView.buyButton
         }
     }

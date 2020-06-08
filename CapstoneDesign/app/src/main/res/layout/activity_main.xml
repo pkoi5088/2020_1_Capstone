@@ -24,11 +24,10 @@
             android:id="@+id/moneyUp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="88dp"
             android:text="Up"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/shopButton"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -46,18 +45,17 @@
             android:id="@+id/shopButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
             android:layout_marginBottom="16dp"
             android:text="SHOP"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/gameButton"
-            app:layout_constraintStart_toEndOf="@+id/moneyUp" />
+            app:layout_constraintStart_toEndOf="@+id/attendButton" />
 
     <Button
             android:id="@+id/gameButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="16dp"
             android:text="GAME"
@@ -91,4 +89,16 @@
             app:layout_constraintTop_toBottomOf="@+id/HeathView"
 
             android:src="@drawable/egg" />
+
+    <Button
+            android:id="@+id/attendButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="16dp"
+            android:text="ATTEND"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/shopButton"
+            app:layout_constraintStart_toStartOf="parent" />
 </android.support.constraint.ConstraintLayout>

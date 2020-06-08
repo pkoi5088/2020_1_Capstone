@@ -31,8 +31,8 @@ class GameActivity : AppCompatActivity() {
         val buyButton : Button
 
         init{
-            titleTextView = itemView.titleTextView
-            priceTextView = itemView.priceTextView
+            titleTextView = itemView.subjectView
+            priceTextView = itemView.attendView
             buyButton = itemView.buyButton
         }
     }
