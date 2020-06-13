@@ -5,7 +5,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="4dp"
+
         app:cardUseCompatPadding="true"
         app:cardBackgroundColor="#ffffffff"
         android:clickable="true">
@@ -13,6 +13,13 @@
     <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:paddingLeft="25dp"
+            android:paddingRight="15dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:background="@drawable/shop_card"
             app:layout_constraintBottom_toBottomOf="@+id/subjectView"
             app:layout_constraintTop_toBottomOf="@+id/subjectView">
 
@@ -23,6 +30,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="이름"
+                android:textStyle="bold"
                 android:textSize="24sp"
                 app:layout_constraintEnd_toStartOf="@+id/buyButton"
                 app:layout_constraintStart_toStartOf="parent"
@@ -33,7 +41,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="4dp"
                 android:layout_marginBottom="8dp"
                 android:text="0000원"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -45,7 +53,11 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
+                android:background="@drawable/shop_btn"
                 android:text="구매"
+                android:textColor="@color/colorOrange"
+                android:textStyle="bold"
+                android:textSize="18dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/subjectView"

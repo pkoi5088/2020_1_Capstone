@@ -7,98 +7,98 @@
         android:visibility="visible"
         tools:context=".MainActivity">
 
-    <TextView
-            android:id="@+id/moneyView"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="107dp"
-            android:text="0000원"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/HeathView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:background="@drawable/main_background"
+            android:orientation="vertical">
 
-    <Button
-            android:id="@+id/moneyUp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="88dp"
-            android:text="Up"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="right"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal">
 
-    <Button
-            android:id="@+id/giftButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="16dp"
-            android:text="GIFT"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/gameButton" />
 
-    <Button
-            android:id="@+id/shopButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="16dp"
-            android:text="SHOP"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/gameButton"
-            app:layout_constraintStart_toEndOf="@+id/attendButton" />
+            <ImageButton
+                    android:id="@+id/giftButton"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginRight="10dp"
+                    android:backgroundTint="@color/cardview_light_background"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/main_bucket"
+                    android:text="GIFT" />
 
-    <Button
-            android:id="@+id/gameButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="16dp"
-            android:text="GAME"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/giftButton"
-            app:layout_constraintStart_toEndOf="@+id/shopButton" />
+            <ImageButton
+                    android:id="@+id/shopButton"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginRight="10dp"
+                    android:backgroundTint="@color/cardview_light_background"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/main_shop"
+                    android:text="SHOP" />
 
-    <TextView
-            android:id="@+id/HeathView"
-            android:layout_width="133dp"
-            android:layout_height="37dp"
-            android:layout_marginBottom="539dp"
-            android:text="5 / 10"
-            android:textAlignment="center"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/moneyView" />
+            <ImageButton
+                    android:id="@+id/attendButton"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginRight="10dp"
+                    android:backgroundTint="@color/cardview_light_background"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/main_timeline"
+                    android:text="ATTEND" />
 
-    <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="302dp"
-            android:layout_height="248dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginBottom="251dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.495"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/HeathView"
+        </LinearLayout>
 
-            android:src="@drawable/egg" />
+        <TextView
+                android:id="@+id/moneyView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:text="0000원"
+                android:textSize="24sp" />
 
-    <Button
-            android:id="@+id/attendButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="16dp"
-            android:text="ATTEND"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/shopButton"
-            app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+                android:id="@+id/HeathView"
+                android:layout_width="133dp"
+                android:layout_height="37dp"
+                android:text="5 / 10"
+                android:textAlignment="center"
+                android:textSize="24sp" />
+
+        <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:src="@drawable/main_egg"
+                android:padding="45dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="30dp"
+                />
+
+        <ImageButton
+                android:id="@+id/gameButton"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/main_food"
+                android:scaleType="fitCenter"
+                android:text="GAME" />
+
+        <Button
+                android:id="@+id/moneyUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:text="Up" />
+
+    </LinearLayout>
+
+
 </android.support.constraint.ConstraintLayout>
