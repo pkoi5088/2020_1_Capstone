@@ -1,16 +1,19 @@
 package com.example.capstonedesign
 
 import android.os.Bundle
+import android.support.v7.app.ActionBar
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import kotlinx.android.synthetic.main.acard.view.attendView
 import kotlinx.android.synthetic.main.acard.view.subjectView
 import kotlinx.android.synthetic.main.activity_attend.recyclerView
+import kotlinx.android.synthetic.main.activity_gift.*
 
 class AttendActivity :AppCompatActivity() {
     val dataList = mutableListOf<MutableMap<String,String>>()
@@ -18,9 +21,26 @@ class AttendActivity :AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_attend)
+        /*custom toolbar*/
+        setSupportActionBar(toolbar)
+        val ab: ActionBar = supportActionBar!!
+        ab.setDisplayShowTitleEnabled(false)
+        ab.setDisplayHomeAsUpEnabled(true)
+        /*---------------------------------------*/
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = MyAdapter()
         updateRecyclerView()
+    }
+    //custom toolbar - backbutton
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+        when(id){
+            android.R.id.home -> {
+                finish()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     inner class MyViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){

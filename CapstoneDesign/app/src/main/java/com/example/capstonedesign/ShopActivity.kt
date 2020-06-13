@@ -1,17 +1,21 @@
 package com.example.capstonedesign
 
 import android.os.Bundle
+import android.support.v7.app.ActionBar
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import android.widget.Toolbar
 import kotlinx.android.synthetic.main.activity_shop.*
 import kotlinx.android.synthetic.main.scard.view.*
+
 
 class ShopActivity : AppCompatActivity()  {
     val dataList = mutableListOf<MutableMap<String,String>>()
@@ -19,10 +23,28 @@ class ShopActivity : AppCompatActivity()  {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_shop)
+        /*custom toolbar*/
+        setSupportActionBar(toolbar)
+        val ab:ActionBar = supportActionBar!!
+        ab.setDisplayShowTitleEnabled(false)
+        ab.setDisplayHomeAsUpEnabled(true)
+        /*---------------------------------------*/
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = MyAdapter()
         updateRecyclerView()
         moneyView.text = getMoney().toString() + "원"
+    }
+
+    //custom toolbar - backbutton
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+        when(id){
+            android.R.id.home -> {
+                finish()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     inner class MyViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
