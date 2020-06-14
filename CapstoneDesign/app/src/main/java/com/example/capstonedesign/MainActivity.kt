@@ -12,6 +12,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setMoney(10000)
         update()
 
         moneyUp.setOnClickListener {
@@ -41,6 +42,18 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+        update()
+    }
+
+    fun setMoney(n : Int){
+        val sql = "SELECT * from user"
+        val dbHelper = PostDbHelper(applicationContext)
+        val cursor = dbHelper.readableDatabase.rawQuery(sql,null)
+        cursor.moveToFirst()
+        val sql2 = "UPDATE user set money = ${n} WHERE id = 0"
+        dbHelper.writableDatabase.execSQL(sql2)
+        val sql3 = "UPDATE user set health = 1 WHERE id = 0"
+        dbHelper.writableDatabase.execSQL(sql3)
         update()
     }
 

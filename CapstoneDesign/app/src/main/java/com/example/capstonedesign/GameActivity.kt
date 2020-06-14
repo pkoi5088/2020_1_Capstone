@@ -81,7 +81,6 @@ class GameActivity : AppCompatActivity() {
         when(g){
             0 -> {
                 val health = getHealth()
-                val max = getMax()
                 val sql = "UPDATE user SET health = ${health+1} where health = ${health}"
                 dbHelper.writableDatabase.execSQL(sql)
             }
