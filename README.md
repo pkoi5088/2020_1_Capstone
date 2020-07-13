@@ -15,19 +15,19 @@
 사용자는 출석과 같은 학교생활을 하며 포인트(화폐)를 모으면 모은 포인트를 구매처(상점)에서 사용하거나 메인화면에 있는 캐릭터를 키우기 위한 아이템들을 구매할 수 있다.
 시연 어플리케이션은 총 6개의 Activity로 구성되어 있으며 SQLite를 다루기 위한 Activity 1개와 5개의 화면 Activity가 존재한다.
 ### 1.	MainActivity
-해당 프로젝트에서 사용할 게임의 배경이 된 게임은 ‘다마고치’이다. 실질적으로 게임을 도입하는 이유는 화폐시스템을 사용하게 하기 위한 일종의 동기가 되어야 하는데 무언가를 키우는 게임이 이에 적합하다고 생각했기 때문이다. 사용하기 편하도록 상단에 구매처, 보관함, 출석현황을 볼 수 있는 버튼을 작게 배치하였고 가운데에 캐릭터를 배치하였다. 여기서 캐릭터는 1학년부터 졸업하는 4학년까지의 일대기를 나타낼 캐릭터로 캠퍼스에 따라 동물이 다르기 때문에 1학년은 알로 설정하였다.
+해당 프로젝트에서 사용할 게임의 배경이 된 게임은 ‘다마고치’이다. 실질적으로 게임을 도입하는 이유는 화폐시스템을 사용하게 하기 위한 일종의 동기가 되어야 하는데 무언가를 키우는 게임이 이에 적합하다고 생각했기 때문이다. 사용하기 편하도록 상단에 구매처, 보관함, 출석현황을 볼 수 있는 버튼을 작게 배치하였고 가운데에 캐릭터를 배치하였다. 여기서 캐릭터는 1학년부터 졸업하는 4학년까지의 일대기를 나타낼 캐릭터로 캠퍼스에 따라 동물이 다르기 때문에 1학년은 알로 설정하였다.  
 ![main](https://user-images.githubusercontent.com/44914802/87288396-408b5380-c536-11ea-9330-199621e91e1c.png)
 
 ### 2.	ShopActivity
-실제 구매처에 해당하는 화면으로 SHOP 테이블의 상품목록들을 RecyclerView를 사용함으로 상품의 추가 및 변경, 삭제하기 간편하도록 만들었다. 앞으로의 GameActivity, GiftActivity, AttendActivity들 역시 RecyclerView를 사용하였다.
+실제 구매처에 해당하는 화면으로 SHOP 테이블의 상품목록들을 RecyclerView를 사용함으로 상품의 추가 및 변경, 삭제하기 간편하도록 만들었다. 앞으로의 GameActivity, GiftActivity, AttendActivity들 역시 RecyclerView를 사용하였다.  
 ![shop](https://user-images.githubusercontent.com/44914802/87288406-41bc8080-c536-11ea-8638-946ff3e5581c.png)
 
 ### 3.	GameActivity
-캐릭터에 사용할 아이템들을 구매할 수 있는 GameActivity이다. 제작 당시에는 시연단계라 배고픔수치와 먹이주기만 만들어 놓았지만 GAME테이블과 RecyclerView를 사용했기 때문에 수치 추가와 아이템 추가 및 수정이 매우 간편하다.
+캐릭터에 사용할 아이템들을 구매할 수 있는 GameActivity이다. 제작 당시에는 시연단계라 배고픔수치와 먹이주기만 만들어 놓았지만 GAME테이블과 RecyclerView를 사용했기 때문에 수치 추가와 아이템 추가 및 수정이 매우 간편하다.  
 ![game](https://user-images.githubusercontent.com/44914802/87288409-42edad80-c536-11ea-85f7-3d7909aa2d1e.png)
 
 ### 4.	GiftActivity
-ShopActivity에서 구매한 상품들을 나타내는 GiftActivity이다. Shop에서 구매버튼을 누르면 GIFT테이블에 INSERT하는 방식으로 구현하였고 사용기한이 들어갈 자리에 구매한 시간을 저장하도록 만들었다.
+ShopActivity에서 구매한 상품들을 나타내는 GiftActivity이다. Shop에서 구매버튼을 누르면 GIFT테이블에 INSERT하는 방식으로 구현하였고 사용기한이 들어갈 자리에 구매한 시간을 저장하도록 만들었다.  
 ![gift](https://user-images.githubusercontent.com/44914802/87288410-441eda80-c536-11ea-891e-4a2ee9dcc45b.png)
 
 ### 5.	AttendActivity
